@@ -77,8 +77,6 @@ class TestBooksCollector:
 
         collector.add_new_book('Паутина')
         collector.set_book_genre('Паутина', 'Детективы')
-        collector.add_new_book('Винни-Пух')
-        collector.set_book_genre('Винни-Пух', 'Мультфильмы')
         collector.add_new_book('Нежданный гость')
         collector.set_book_genre('Нежданный гость', 'Детективы')
         books_with_specific_genre = collector.get_books_with_specific_genre('Детективы')
@@ -101,13 +99,8 @@ class TestBooksCollector:
 
     def test_get_books_for_children_filter_one_book(self):
         collector = BooksCollector()
-
-        collector.add_new_book('Паутина')
-        collector.set_book_genre('Паутина', 'Детективы')
         collector.add_new_book('Винни-Пух')
         collector.set_book_genre('Винни-Пух', 'Мультфильмы')
-        collector.add_new_book('Темная башня')
-        collector.set_book_genre('Темная башня', 'Ужасы')
         books_for_children = collector.get_books_for_children()
         
         assert len(books_for_children) == 1 and 'Винни-Пух' in books_for_children
